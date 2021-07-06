@@ -10,13 +10,14 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 250px;
     grid-template-rows: auto;
     grid-template-areas: 
-        "banner banner banner"
-        "main main side"
-        "footer footer footer";
+        "banner banner"
+        "main side"
+        "footer footer";
         grid-gap: 4px;
+    
 }
 
 /* ---- End of grid setup ---- */
@@ -34,11 +35,11 @@ body {
 
 /* logo, banner and footer background are the same */
 .logo, .banner, .footer {
-    background-color: #0085b5;  /* blue */
+    background-color: #888;  /* dark grey */
 }
 
 /* Set font on dark areas to white */
-.logo, .banner, .side, .footer {
+.logo, .banner, .footer {
     color: #fff;
 }
 
@@ -50,25 +51,19 @@ body {
     
 }
 
-.side {
-    grid-area: side;
-    background-color: #575757;
-}
-
 .banner {
     grid-area: banner;
 }
 
-.nav {
-    grid-area: nav;
+.side {
+    grid-area: side;
     background-color: #DDD;  /* silver */
-    font-size: 150%;
     text-align: center;
 }
 
 .main {
     grid-area: main;
-    background-color: #e6fffc;  /* very pale blue */
+    background-color: #EEE;  /* very pale grey */
     border: solid 1px #CCC;
 }
 
@@ -84,10 +79,10 @@ h1, h2, h3, h4 {
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* Navigation Links */
-.nav a {font-weight: bold;}
-.nav a:link, .nav a:visited {color: #AA0000;} /*dark red */
-.nav a:hover {color: #604830; text-decoration: none;} /* chocolate brown */
+/* Side Links */
+.side a {font-weight: bold; text-decoration: none;}
+.side a:link, .side a:visited {color: #AA0000;} /*dark red */
+.side a:hover {color: #604830;} /* chocolate brown */
 
 
 /* links in page */
