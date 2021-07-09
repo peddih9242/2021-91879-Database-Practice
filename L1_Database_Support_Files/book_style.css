@@ -124,3 +124,9 @@ a:hover{color: #000;}    /* Black*/
     padding: 5px;
 
 }
+
+/* Form formatting */
+
+.search {
+    width: 200px;
+}
