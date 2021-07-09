@@ -44,12 +44,23 @@ $count=mysqli_num_rows($showall_query);
 
                 <p>Genre: <span class="sub_heading"><?php echo $showall_rs['Genre']; ?></span></p>
 
-                <p>Rating: <span class="sub_heading"><?php echo $showall_rs['Rating']; ?></span></p>
+                <p>Rating: <span class="sub_heading">
+                
+                <?php
+                for ($x=0; $x < $showall_rs['Rating']; $x++)
+                
+                {
+                    echo "&#9733;";
+                }
+                
+                ?>
+                
+                </span></p>
 
                 <p><span class="sub_heading">Review / Response</span></p>
 
                 <p>
-                Review Placeholder
+                <?php echo $showall_rs['Review']; ?>
                 </p>
                 
                 </div> <!-- results -->
