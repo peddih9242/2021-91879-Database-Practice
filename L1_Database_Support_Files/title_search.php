@@ -30,6 +30,7 @@ $count=mysqli_num_rows($titlesearch_query);
             <div class="error">
                 Sorry! There are no results that match your search.
                 Please use the search box in the sidebar to try again.
+            </div> <!-- error -->
 
             <?php
 
