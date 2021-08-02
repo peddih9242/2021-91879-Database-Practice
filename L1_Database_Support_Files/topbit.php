@@ -6,6 +6,7 @@
 
         session_start();
         include("config.php");
+        include("functions.php");
 
         // Connect to database
 
@@ -49,6 +50,10 @@
             
             <h1>Orchid Reading</h1>
         </div>    <!-- / banner -->
+
+        <div class="box nav">
+        <a href="index.php">Home</a>
+        </div> <!-- / nav -->
         
         <div class="box side">
         
@@ -71,7 +76,63 @@
         <!-- End of Title Search -->
 
         <hr />
-        Author Search <br />
-        Genre Search<br />
-        Rating Search
+
+        <!-- Start of Author Search -->
+        
+        <form method="post" action="author_search.php" enctype="multipart/form-data">
+        
+            <input class="search" type="text" name="author" size="40" value="" required placeholder="Author..." />
+
+            <input class="submit" type="submit" name="find_author" value = "Search">
+
+        </form>
+
+        <!-- End of Author Search -->
+        <hr />
+
+        <!-- Start of Genre Search -->
+        
+        <form method="post" action="genre_search.php" enctype="multipart/form-data">
+        
+            <select name="genre" required>
+            <option value="" disabled selected>Genre...</option>
+                <option value="Sci Fi">Science Fiction</option>
+                <option value="Non Fiction">Non Fiction</option>
+                <option value="Humour">Humour</option>
+                <option value="Historical Fiction">Historical Fiction</option>
+
+            </select>
+
+            <input class="submit" type="submit" name="find_genre" value = "Search">
+
+        </form>
+
+        <!-- End of Genre Search -->
+        <hr />
+        
+        <!-- Start of Rating Search -->
+        
+        <form method="post" action="rating_search.php" enctype="multipart/form-data">
+        
+            <select class="half_width" name="amount">
+            <option value="exactly">Exactly...</option>
+                <option value="more" selected>At least...</option>
+                <option value="less">At most...</option>
+            </select>
+
+            <select class="half_width" name="stars">
+                <option value="1">&#9733;</option>
+                <option value="2">&#9733;&#9733;</option>
+                <option value="3" selected>&#9733;&#9733;&#9733;</option>
+                <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+
+            </select>
+
+            <input class="submit" type="submit" name="find_rating" value = "Search">
+
+        </form>
+
+<!-- End of Rating Search -->
+        
         </div> <!-- / side bar -->

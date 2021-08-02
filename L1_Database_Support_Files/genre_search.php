@@ -1,21 +1,21 @@
 <?php include ("topbit.php");
 
 // if find button pushed
-if(isset($_POST['find_title']))
+if(isset($_POST['find_genre']))
 
 {
 
-$title=test_input(mysqli_real_escape_string($dbconnect, $_POST['title']));
+$genre=test_input(mysqli_real_escape_string($dbconnect, $_POST['genre']));
 
-$titlesearch_sql="SELECT * FROM `book_reviews` WHERE `Title` LIKE '%$title%' ORDER BY `Title` ASC ";
-$titlesearch_query=mysqli_query($dbconnect, $titlesearch_sql);
-$titlesearch_rs=mysqli_fetch_assoc($titlesearch_query);
-$count=mysqli_num_rows($titlesearch_query);
+$genresearch_sql="SELECT * FROM `book_reviews` WHERE `Genre` LIKE '%$genre%' ORDER BY `Genre` ASC ";
+$genresearch_query=mysqli_query($dbconnect, $genresearch_sql);
+$genresearch_rs=mysqli_fetch_assoc($genresearch_query);
+$count=mysqli_num_rows($genresearch_query);
 
 ?>
 
         <div class="box main"> 
-            <h2>Title Search</h2>
+            <h2>Genre Search</h2>
 
             <?php
 
@@ -46,16 +46,16 @@ $count=mysqli_num_rows($titlesearch_query);
                 <!-- Results go here -->
                 <div class="results">
                 
-                <p>Title: <span class="sub_heading"><?php echo $titlesearch_rs['Title']; ?></span></p>
+                <p>Title: <span class="sub_heading"><?php echo $genresearch_rs['Title']; ?></span></p>
                 
-                <p>Author: <span class="sub_heading"><?php echo $titlesearch_rs['Author']; ?></span></p>
+                <p>Author: <span class="sub_heading"><?php echo $genresearch_rs['Author']; ?></span></p>
 
-                <p>Genre: <span class="sub_heading"><?php echo $titlesearch_rs['Genre']; ?></span></p>
+                <p>Genre: <span class="sub_heading"><?php echo $genresearch_rs['Genre']; ?></span></p>
 
                 <p>Rating: <span class="sub_heading">
                 
                 <?php
-                for ($x=0; $x < $titlesearch_rs['Rating']; $x++)
+                for ($x=0; $x < $genresearch_rs['Rating']; $x++)
                 
                 {
                     echo "&#9733;";
@@ -68,7 +68,7 @@ $count=mysqli_num_rows($titlesearch_query);
                 <p><span class="sub_heading">Review / Response</span></p>
 
                 <p>
-                <?php echo $titlesearch_rs['Review']; ?>
+                <?php echo $genresearch_rs['Review']; ?>
                 </p>
                 
                 </div> <!-- results -->
@@ -78,7 +78,7 @@ $count=mysqli_num_rows($titlesearch_query);
 
                 } // end of 'do'
 
-                while($titlesearch_rs=mysqli_fetch_assoc($titlesearch_query));
+                while($genresearch_rs=mysqli_fetch_assoc($genresearch_query));
 
             } // end 'else'
 
