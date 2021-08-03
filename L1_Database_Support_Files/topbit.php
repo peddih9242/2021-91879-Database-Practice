@@ -32,6 +32,7 @@
     <!-- Edit the link below / replace with your chosen google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato%7cUbuntu" rel="stylesheet"> 
     
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="book_style.css"> 
     
 </head>
@@ -69,7 +70,7 @@
         
             <input class="search" type="text" name="title" size="40" value="" required placeholder="Title..." />
 
-            <input class="submit" type="submit" name="find_title" value = "Search">
+            <input class="submit input" type="submit" name="find_title" value = "&#xf002;" />
 
         </form>
 
@@ -83,7 +84,7 @@
         
             <input class="search" type="text" name="author" size="40" value="" required placeholder="Author..." />
 
-            <input class="submit" type="submit" name="find_author" value = "Search">
+            <input class="submit input" type="submit" name="find_author" value = "&#xf002;" />
 
         </form>
 
@@ -96,14 +97,32 @@
         
             <select name="genre" required>
             <option value="" disabled selected>Genre...</option>
-                <option value="Sci Fi">Science Fiction</option>
-                <option value="Non Fiction">Non Fiction</option>
-                <option value="Humour">Humour</option>
-                <option value="Historical Fiction">Historical Fiction</option>
+            <?php
+            // retrieve unique values in genre column
+            $genre_sql="SELECT DISTINCT `Genre` FROM `book_reviews` ORDER BY `book_reviews`.`Genre` ASC";
+            $genre_query=mysqli_query($dbconnect, $genre_sql);
+            $genre_rs=mysqli_fetch_assoc($genre_query);
+            
+            do {
+
+                ?>
+
+            <option value="<?php echo $genre_rs['Genre']; ?>"><?php echo $genre_rs['Genre']; ?></option>
+
+            <?php
+
+            } // end of genre option retrieval
+
+            while($genre_rs=mysqli_fetch_assoc($genre_query));
+
+            ?>
+
+                
+                
 
             </select>
 
-            <input class="submit" type="submit" name="find_genre" value = "Search">
+            <input class="submit input" type="submit" name="find_genre" value = "&#xf002;" />
 
         </form>
 
@@ -129,7 +148,7 @@
 
             </select>
 
-            <input class="submit" type="submit" name="find_rating" value = "Search">
+            <input class="submit input" type="submit" name="find_rating" value = "&#xf002;" />
 
         </form>
 
