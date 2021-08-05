@@ -167,7 +167,11 @@ form {
     border-radius: 0 5px 5px 0;
 }
 
-.input {
+input[type="submit"]:hover {
+    background-color: #000;
+}
+
+input {
     height: 40px;
     padding: 10px;
     display: inline-block;
