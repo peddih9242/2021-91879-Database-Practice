@@ -76,8 +76,6 @@
 
         <!-- End of Title Search -->
 
-        <hr />
-
         <!-- Start of Author Search -->
         
         <form method="post" action="author_search.php" enctype="multipart/form-data">
@@ -91,6 +89,8 @@
         <!-- End of Author Search -->
         <hr />
 
+        <i>Use the dropdown menus to search by genre or rating</i>
+        <hr />
         <!-- Start of Genre Search -->
         
         <form method="post" action="genre_search.php" enctype="multipart/form-data">
@@ -127,7 +127,6 @@
         </form>
 
         <!-- End of Genre Search -->
-        <hr />
         
         <!-- Start of Rating Search -->
         
